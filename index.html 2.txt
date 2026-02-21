@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile</title>
+</head>
+
+<body style="background-color:gray">
+
+<div style="background-color:#3628; width:600px; padding:15px; border:2px solid black; margin:40px;">
+
+    <!-- PROFILE PICTURE -->
+    <img src="https://uploads.onecompiler.io/44e2kbb6m/44e2kcvzs/IMG_1199.jpeg" width="200" style="border:2px solid black;"><br><br>
+
+    <!-- NAME -->
+    <b>Name:</b> Dela Cruz, Darwin D.
+    <hr>
+
+    <!-- COURSE -->
+    <b>Course:</b> Bachelor of Science in Computer Science
+    <hr>
+
+    <!-- SECTION -->
+    <b>Section:</b> BSCS-1B
+    <hr>
+
+    <!-- CONTROL NUMBER -->
+    <b>Control Number:</b> 251100887
+    <hr>
+
+    <!-- ABOUT ME -->
+    <b>About Me:</b> Hello! I'm Darwin Dela Cruz, you can call me Darwin,
+    18 yrs old from Dasmariñas Cavite. I loved spending time alone and my hobbies are
+    watching movies, listening to music, eating.
+
+</div>
+
+</body>
+</html>
