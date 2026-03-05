@@ -1,38 +1,155 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Profile</title>
-</head>
-<body style="background-color: #2e2e2e; display: flex; justify-content: center;">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<title>Profile</title>
 
-<div style="
+<style>
+body {
+    background-color: #2e2e2e;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.container {
     background-color: #1f3b1f;
     width: 600px;
     padding: 20px;
     border: 2px solid #00ff00;
-    margin: 40px;
-    color: white;
-">
+    margin-top: 40px;
+    text-align: center;
+    border-radius: 20px;
+}
 
-    <img src="https://uploads.onecompiler.io/44e2kbb6m/44e2kcvzs/IMG_1199.jpeg" 
-         width="200" 
-         style="border:2px solid #00ff00;"><br><br>
+button {
+    background-color: black;
+    color: #00ff00;
+    border: 2px solid #00ff00;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 20px;
+}
 
-    <b>Name:</b> Dela Cruz, Darwin D.
-    <hr>
+button:hover {
+    background-color: #00ff00;
+    color: black;
+}
 
-    <b>Course:</b> Bachelor of Science in Computer Science
-    <hr>
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
 
-    <b>Section:</b> BSCS-1B
-    <hr>
+.box {
+    border: 2px solid #00ff00;
+    padding: 5px;
+    border-radius: 20px;
+}
 
-    <b>Control Number:</b> 251100887
-    <hr>
+.box img {
+    width: 100%;
+    border-radius: 20px;
+}
 
-    <b>About Me:</b> Hello! I'm Darwin. I am 18 years old from Dasmariñas, Cavite.
-    I like watching movies, listening to music, and spending time alone.
+.hidden {
+    display: none;
+}
+</style>
 
+<script>
+function showSection(sectionId) {
+    document.getElementById("home").style.display = "none";
+    document.getElementById("activity").style.display = "none";
+    document.getElementById("quiz").style.display = "none";
+    document.getElementById("exam").style.display = "none";
+
+    document.getElementById(sectionId).style.display = "block";
+}
+
+function goHome() {
+    document.getElementById("home").style.display = "block";
+    document.getElementById("activity").style.display = "none";
+    document.getElementById("quiz").style.display = "none";
+    document.getElementById("exam").style.display = "none";
+}
+</script>
+
+</head>
+<body>
+
+<!-- HOME SECTION -->
+<div class="container" id="home">
+
+<img src="https://uploads.onecompiler.io/44e2kbb6m/44e2kcvzs/IMG_1199.jpeg" width="200" style="border:2px solid #00ff00;border-radius: 20px;"><br><br>
+
+<b>Name:</b> Dela Cruz, Darwin D.
+<hr>
+<b>Course:</b> Bachelor of Science in Computer Science
+<hr>
+<b>Section:</b> BSCS-1B
+<hr>
+<b>Control Number:</b> 251100887
+<hr>
+<b>About Me:</b>Hello! I'm Darwin. I am 18 years old from Dasmariñas, Cavite. I like watching movies, listening to music, and spending time alone.
+
+<br><br>
+
+<button onclick="showSection('activity')">Activity</button>
+<button onclick="showSection('quiz')">Quiz</button>
+<button onclick="showSection('exam')">Exam</button>
+
+</div>
+
+<!-- ACTIVITY SECTION -->
+<div class="container hidden" id="activity">
+<h2>My Activities</h2>
+<div class="grid">
+    <div class="box"><img src="https://uploads.onecompiler.io/44e2kbb6m/44e2vz54d/IMG_0905.jpeg"></div>
+    <div class="box"><img src="https://uploads.onecompiler.io/44e2kbb6m/44e2vz54d/IMG_0905.jpeg"></div>
+    <div class="box"><img src="https://uploads.onecompiler.io/44e2kbb6m/44e2vz54d/IMG_0905.jpeg"></div>
+    <div class="box"><img src="https://uploads.onecompiler.io/44e2kbb6m/44e2vz54d/IMG_0905.jpeg"></div>
+    <div class="box"><img src="https://uploads.onecompiler.io/44e2kbb6m/44e2vz54d/IMG_0905.jpeg"></div>
+    <div class="box"><img src="https://uploads.onecompiler.io/44e2kbb6m/44e2vz54d/IMG_0905.jpeg"></div>
+</div>
+<br>
+<button onclick="goHome()">Back</button>
+</div>
+
+<!-- QUIZ SECTION -->
+<div class="container hidden" id="quiz">
+<h2>My Quizzes</h2>
+<div class="grid">
+    <div class="box"><img src="https://uploads.onecompiler.io/44e2kbb6m/44e2vz54d/IMG_0905.jpeg"></div>
+    <div class="box"><img src="https://uploads.onecompiler.io/44e2kbb6m/44e2vz54d/IMG_0905.jpeg"></div>
+    <div class="box"><img src="https://uploads.onecompiler.io/44e2kbb6m/44e2vz54d/IMG_0905.jpeg"></div>
+    <div class="box"><img src="https://uploads.onecompiler.io/44e2kbb6m/44e2vz54d/IMG_0905.jpeg"></div>
+    <div class="box"><img src="https://uploads.onecompiler.io/44e2kbb6m/44e2vz54d/IMG_0905.jpeg"></div>
+    <div class="box"><img src="https://uploads.onecompiler.io/44e2kbb6m/44e2vz54d/IMG_0905.jpeg"></div>
+</div>
+<br>
+<button onclick="goHome()">Back</button>
+</div>
+
+<!-- EXAM SECTION -->
+<div class="container hidden" id="exam">
+<h2>My Exams</h2>
+<div class="grid">
+    <div class="box"><img src="https://uploads.onecompiler.io/44e2kbb6m/44e2vz54d/IMG_0905.jpeg"></div>
+    <div class="box"><img src="https://uploads.onecompiler.io/44e2kbb6m/44e2vz54d/IMG_0905.jpeg"></div>
+    <div class="box"><img src="https://uploads.onecompiler.io/44e2kbb6m/44e2vz54d/IMG_0905.jpeg"></div>
+    <div class="box"><img src="https://uploads.onecompiler.io/44e2kbb6m/44e2vz54d/IMG_0905.jpeg"></div>
+    <div class="box"><img src="https://uploads.onecompiler.io/44e2kbb6m/44e2vz54d/IMG_0905.jpeg"></div>
+    <div class="box"><img src="https://uploads.onecompiler.io/44e2kbb6m/44e2vz54d/IMG_0905.jpeg"></div>
+</div>
+<br>
+<button onclick="goHome()">Back</button>
 </div>
 
 </body>
