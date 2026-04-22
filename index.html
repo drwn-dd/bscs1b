@@ -1,94 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 <title>Profile</title>
-
-<style>
-body {
-    background-color: #2e2e2e;
-    font-family: 'Poppins', sans-serif;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
-}
-
-.container {
-    background-color: #1f3b1f;
-    width: 600px;
-    padding: 20px;
-    border: 2px solid #00ff00;
-    margin-top: 40px;
-    text-align: center;
-    border-radius: 20px;
-}
-
-button {
-    background-color: black;
-    color: #00ff00;
-    border: 2px solid #00ff00;
-    padding: 10px 20px;
-    margin: 10px;
-    cursor: pointer;
-    border-radius: 20px;
-}
-
-button:hover {
-    background-color: #00ff00;
-    color: black;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-    margin-top: 20px;
-}
-
-.box {
-    border: 2px solid #00ff00;
-    padding: 5px;
-    border-radius: 20px;
-}
-
-.box img {
-    width: 100%;
-    border-radius: 20px;
-}
-
-.hidden {
-    display: none;
-}
-</style>
-
-<script>
-function showSection(sectionId) {
-    document.getElementById("home").style.display = "none";
-    document.getElementById("activity").style.display = "none";
-    document.getElementById("quiz").style.display = "none";
-    document.getElementById("exam").style.display = "none";
-
-    document.getElementById(sectionId).style.display = "block";
-}
-
-function goHome() {
-    document.getElementById("home").style.display = "block";
-    document.getElementById("activity").style.display = "none";
-    document.getElementById("quiz").style.display = "none";
-    document.getElementById("exam").style.display = "none";
-}
-</script>
-
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
+<div class="topbar">
+    <div class="title">Darwin Dela Cruz | Portfolio</div>
+
+    <div class="burger" onclick="toggleMenu(this)">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+
+<div id="menu" class="menu hidden">
+    <button onclick="showSection('home'); closeMenu()">Home</button>
+    <button onclick="showSection('dashboard'); closeMenu()">Dashboard</button>
+    <button onclick="showSection('quiz'); closeMenu()">Quiz</button>
+    <button onclick="showSection('laboratories'); closeMenu()">Laboratories</button>
+    <button onclick="showSection('exam'); closeMenu()">Exam</button>
+</div>
+
 <marquee width="600">Anoo taraa??</marquee>
 
-<!-- HOME SECTION -->
 <div class="container" id="home">
-
-<img src="https://uploads.onecompiler.io/44e2kbb6m/44e2kcvzs/IMG_1199.jpeg" width="200" style="border:2px solid #00ff00;border-radius: 20px;"><br><br>
+<img src="https://uploads.onecompiler.io/44e2kbb6m/44e2kcvzs/IMG_1199.jpeg" width="200" style="border:2px solid #00ff00;border-radius:20px;">
+<br><br>
 
 <b>Name:</b> Dela Cruz, Darwin D.
 <hr>
@@ -98,57 +41,57 @@ function goHome() {
 <hr>
 <b>Control Number:</b> 251100887
 <hr>
-<b>About Me:</b>Hello! I'm Darwin. I am 18 years old from Dasmariñas, Cavite. I like watching movies, listening to music, and spending time alone.
-
-<br><br>
-
-<button onclick="showSection('activity')">Activity</button>
-<button onclick="showSection('quiz')">Quiz</button>
-<button onclick="showSection('exam')">Exam</button>
-
+<b>About Me:</b> Hello! I'm Darwin. I am 18 years old from Dasmariñas, Cavite. I like watching movies, listening to music, and spending time alone.
 </div>
 
-<!-- ACTIVITY SECTION -->
-<div class="container hidden" id="activity">
-<h2>My Activities</h2>
-<div class="grid">
-    <div class="box"><img src="https://uploads.onecompiler.io/44e2kbb6m/44e2vz54d/IMG_0905.jpeg"><b>Activity#1</b></div>
-    <div class="box"><img src="https://uploads.onecompiler.io/44e2kbb6m/44e2vz54d/IMG_0905.jpeg"></div>
-    <div class="box"><img src="https://uploads.onecompiler.io/44e2kbb6m/44e2vz54d/IMG_0905.jpeg"></div>
-    <div class="box"><img src="https://uploads.onecompiler.io/44e2kbb6m/44e2vz54d/IMG_0905.jpeg"></div>
-    <div class="box"><img src="https://uploads.onecompiler.io/44e2kbb6m/44e2vz54d/IMG_0905.jpeg"></div>
-    <div class="box"><img src="https://uploads.onecompiler.io/44e2kbb6m/44e2vz54d/IMG_0905.jpeg"></div>
+<div class="container hidden" id="dashboard">
+<h2>Dashboard</h2>
+
+<div class="dash-grid">
+    <div class="dash-box"><h3>Total</h3><p id="totalCount">0</p></div>
+    <div class="dash-box"><h3>Quiz</h3><p id="quizCount">0</p></div>
+    <div class="dash-box"><h3>Lab</h3><p id="labCount">0</p></div>
+    <div class="dash-box"><h3>Exam</h3><p id="examCount">0</p></div>
 </div>
-<br>
-<button onclick="goHome()">Back</button>
 </div>
 
-<!-- QUIZ SECTION -->
 <div class="container hidden" id="quiz">
-<h2>My Quizzes</h2>
+<h2>Quiz</h2>
+
 <div class="grid">
-    <div class="box"><img src="https://uploads.onecompiler.io/44e2kbb6m/44e2vz54d/IMG_0905.jpeg"> <b> Quiz#1 </b></div>
-    <div class="box"><img src="https://uploads.onecompiler.io/44e2kbb6m/44e2vz54d/IMG_0905.jpeg"><b> Quiz#2</b></div>
-    <div class="box"><img src="https://uploads.onecompiler.io/44e2kbb6m/44e2vz54d/IMG_0905.jpeg"><b> Quiz#3</b></div>
-    <div class="box"><img src="https://uploads.onecompiler.io/44e2kbb6m/44e2vz54d/IMG_0905.jpeg"></div>
-    <div class="box"><img src="https://uploads.onecompiler.io/44e2kbb6m/44e2vz54d/IMG_0905.jpeg"></div>
-    <div class="box"><img src="https://uploads.onecompiler.io/44e2kbb6m/44e2vz54d/IMG_0905.jpeg"></div>
+    <div class="box"><img onclick="openImage(this)" src="https://uploads.onecompiler.io/44e2kbb6m/44m48tgrh/IMG_1880.jpeg"> <p> Quiz 1</p></div>
+    <div class="box"><img onclick="openImage(this)" src="https://uploads.onecompiler.io/44e2kbb6m/44m48tgrh/IMG_1878.jpeg"> <p> Quiz 2</p></div>
+    <div class="box"><img onclick="openImage(this)" src="https://uploads.onecompiler.io/44e2kbb6m/44m48tgrh/IMG_1879.jpeg"> <p> Quiz 3.front </p></div>
+    <div class="box"><img onclick="openImage(this)" src="https://uploads.onecompiler.io/44e2kbb6m/44m48tgrh/IMG_1978.jpeg"> <p> Quiz 3.back </p></div>
+    <div class="box"><img onclick="openImage(this)" src="https://uploads.onecompiler.io/44e2kbb6m/44m48tgrh/IMG_1977.jpeg"> <p> Long Quiz </p></div>
+    <div class="box"><img onclick="openImage(this)" src="https://uploads.onecompiler.io/44e2kbb6m/44m48tgrh/IMG_1877.jpeg"> <p> Carousel </p></div>
 </div>
-<br>
-<button onclick="goHome()">Back</button>
 </div>
 
-<!-- EXAM SECTION -->
+<div class="container hidden" id="laboratories">
+<h2>Laboratories</h2>
+
+<div class="grid lab-grid">
+    <div class="box"><img onclick="openImage(this)" src="https://uploads.onecompiler.io/44e2kbb6m/44e2vz54d/IMG_0905.jpeg"></div>
+    <div class="box"><img onclick="openImage(this)" src="https://uploads.onecompiler.io/44e2kbb6m/44e2vz54d/IMG_0905.jpeg"></div>
+    <div class="box"><img onclick="openImage(this)" src="https://uploads.onecompiler.io/44e2kbb6m/44e2vz54d/IMG_0905.jpeg"></div>
+    <div class="box"><img onclick="openImage(this)" src="https://uploads.onecompiler.io/44e2kbb6m/44e2vz54d/IMG_0905.jpeg"></div>
+</div>
+</div>
+
 <div class="container hidden" id="exam">
-<h2>My Exams</h2>
-<div class="grid" style="grid-template-columns: repeat(2, 1fr);">
-    <div class="box"><img src="https://uploads.onecompiler.io/44e2kbb6m/44e2vz54d/IMG_0905.jpeg"><b>Midterm Exam</b></div>
-    <div class="box"><img src="https://uploads.onecompiler.io/44e2kbb6m/44e2vz54d/IMG_0905.jpeg"><b>Final Exam</b></div>
+<h2>Exam</h2>
 
+<div class="grid exam-grid">
+    <div class="box"><img onclick="openImage(this)" src="https://uploads.onecompiler.io/44e2kbb6m/44e2vz54d/IMG_0905.jpeg"></div>
+    <div class="box"><img onclick="openImage(this)" src="https://uploads.onecompiler.io/44e2kbb6m/44e2vz54d/IMG_0905.jpeg"></div>
 </div>
-<br>
-<button onclick="goHome()">Back</button>
 </div>
 
+<div id="backWrapper" class="hidden">
+    <button class="back-btn" onclick="showSection('home')">Back to Home</button>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
