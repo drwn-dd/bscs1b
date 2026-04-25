@@ -1,1 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration Form</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #2e2e2e;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.card {
+    width: 600px;
+    max-width: 95%;
+    background-color: #1f3b1f;
+    border: 2px solid #00ff00;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #00ff00;
+    margin-bottom: 20px;
+}
+
+label {
+    margin-top: 10px;
+    display: block;
+    color: #00ff00;
+}
+
+input, select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+
+    background: #2e2e2e;
+    color: white;
+
+    border: 1px solid #00ff00;
+    border-radius: 8px;
+}
+
+.radio-group {
+    margin-top: 8px;
+    color: white;
+}
+
+.radio-group input {
+    width: auto;
+    margin-right: 5px;
+}
+
+/* FIXED CHECKBOX ALIGNMENT */
+.checkbox-group {
+    margin-top: 10px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    color: white;
+}
+
+.checkbox-label input {
+    width: auto;
+    margin: 0;
+}
+
+button {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #00ff00;
+    cursor: pointer;
+}
+
+.primary-btn {
+    background-color: #00ff00;
+    color: black;
+}
+
+.secondary-btn {
+    background: transparent;
+    color: #00ff00;
+}
+
+.small-btn {
+    margin-top: 10px;
+    width: 100%;
+    background: #223922;
+    color: #00ff00;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.back-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px;
+
+    border: 2px solid #00ff00;
+    border-radius: 10px;
+
+    text-decoration: none;
+    color: #00ff00;
+    text-align: center;
+    width: 100%;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>Registration Form</h1>
+
+<label>Full Name</label>
+<input type="text" id="fullName" placeholder="Enter Full Name">
+
+<label>Email</label>
+<input type="text" id="email" placeholder="Enter Email">
+
+<label>Password</label>
+<input type="password" id="password" placeholder="Enter Password">
+
+<label>Confirm Password</label>
+<input type="password" id="confirm" placeholder="Confirm Password">
+
+<button type="button" class="small-btn" onclick="togglePassword()">
+Show / Hide Password
+</button>
+
+<label>Age</label>
+<input type="number" id="age" placeholder="Enter Age">
+
+<label>Gender</label>
+<div class="radio-group">
+    <input type="radio" name="gender" id="male"> Male
+    <input type="radio" name="gender" id="female"> Female
+    <input type="radio" name="gender" id="other"> Other
+</div>
+
+<label>Country</label>
+<select id="country">
+    <option value="">-- select a country --</option>
+    <option value="USA">United States</option>
+    <option value="Canada">Canada</option>
+    <option value="UK">United Kingdom</option>
+    <option value="Australia">Australia</option>
+    <option value="India">India</option>
+    <option value="Philippines">Philippines</option>
+    <option value="Other">Other</option>
+</select>
+
+<div class="checkbox-group">
+    <label class="checkbox-label">
+        <input type="checkbox" id="agree">
+        <span>I agree to Terms & Privacy</span>
+    </label>
+</div>
+
+<div class="buttons">
+    <button type="button" class="secondary-btn" onclick="clearForm()">Clear</button>
+    <button type="button" class="primary-btn" onclick="RegistrationSummary()">Register</button>
+</div>
+
+<a href="index.html" class="back-btn"> Back to Portfolio</a>
+
+</div>
+
+<script>
+function togglePassword() {
+    let pass = document.getElementById("password");
+    let confirm = document.getElementById("confirm");
+
+    pass.type = pass.type === "password" ? "text" : "password";
+    confirm.type = confirm.type === "password" ? "text" : "password";
+}
+
+function RegistrationSummary() {
+
+    let name = document.getElementById("fullName").value;
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+    let confirm = document.getElementById("confirm").value;
+    let age = document.getElementById("age").value;
+    let country = document.getElementById("country").value;
+
+    let gender = "";
+    if (document.getElementById("male").checked) gender = "Male";
+    else if (document.getElementById("female").checked) gender = "Female";
+    else if (document.getElementById("other").checked) gender = "Other";
+
+    if (password !== confirm) {
+        alert("Passwords do not match.");
+        return;
+    }
+
+    if (!document.getElementById("agree").checked) {
+        alert("Please accept the terms.");
+        return;
+    }
+
+    alert(
+        "REGISTRATION SUMMARY\n\n" +
+        "Full Name: " + name + "\n" +
+        "Email: " + email + "\n" +
+        "Age: " + age + "\n" +
+        "Gender: " + gender + "\n" +
+        "Country: " + country
+    );
+}
+
+function clearForm() {
+    document.querySelectorAll("input").forEach(el => {
+        if (el.type === "radio" || el.type === "checkbox") {
+            el.checked = false;
+        } else {
+            el.value = "";
+        }
+    });
+    document.getElementById("country").value = "";
+}
+</script>
+
+</body>
+</html>
