@@ -1,1 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Lab 2</title>
 
+<!-- FIX: add font properly -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #2e2e2e;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #00ff00;
+    margin-bottom: 20px;
+}
+
+section {
+    background-color: #1f3b1f;
+    border: 2px solid #00ff00;
+    border-radius: 15px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+h2 {
+    color: #00ff00;
+    margin-bottom: 10px;
+}
+
+button {
+    background: #223922;
+    color: #00ff00;
+    border: 1px solid #00ff00;
+    padding: 8px 12px;
+    margin: 5px 0;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+input {
+    padding: 6px;
+    margin: 5px 0;
+    width: 200px;
+    background: #2e2e2e;
+    color: white;
+    border: 1px solid #00ff00;
+    border-radius: 6px;
+}
+
+.output {
+    margin-top: 8px;
+    padding: 8px;
+    border: 1px solid #00ff00;
+    border-radius: 6px;
+}
+
+.back-btn {
+    display: inline-block;
+    margin: 20px 10px 0 0;
+    padding: 10px 18px;
+    border: 2px solid #00ff00;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #00ff00;
+}
+</style>
+</head>
+
+<body>
+
+<h1>JavaScript Button Samples</h1>
+
+<section>
+    <h2>1. Alert Button</h2>
+    <button onclick="alert('Hola amigo, gracias por responder!!')">Click Alert</button>
+</section>
+
+<section>
+    <h2>2. Function Button</h2>
+    <button onclick="sayHola()">Click Me for Function</button>
+    <div class="output" id="output1"></div>
+</section>
+
+<section>
+    <h2>3. Change Text Button</h2>
+    <p id="text11">Original Text</p>
+    <button onclick="changeText()">Change</button>
+</section>
+
+<section>
+    <h2>4. Counter Button</h2>
+    <p>Count: <span id="countDisplay">0</span></p>
+    <button onclick="incrementCounter()">Add</button>
+</section>
+
+<section>
+    <h2>5. Input Name Button</h2>
+    <input id="nameInput" placeholder="Enter your name">
+    <button onclick="greetUser()">Submit</button>
+    <div class="output" id="output2"></div>
+</section>
+
+<section>
+    <h2>6. Age Check Button</h2>
+    <input id="ageInput" type="number" placeholder="Age">
+    <button onclick="checkAge()">Check</button>
+    <div class="output" id="output3"></div>
+</section>
+
+<section>
+    <h2>7. Multiple Parameters</h2>
+    <input id="num1" type="number" placeholder="A">
+    <input id="num2" type="number" placeholder="B"><br>
+    <button onclick="add()">Add numbers</button>
+    <button onclick="sub()">Subtract numbers</button>
+    <button onclick="mul()">Multiply numbers</button>
+    <div class="output" id="output4"></div>        
+</section>
+
+<section>
+    <h2>8. Toggle Light Button</h2>
+    <div id="light" style="padding: 10px; background: #223922;">Light is OFF</div>
+    <button onclick="toggleLight()">Switch</button> 
+</section>
+
+<section>
+    <h2>9. Loop Button</h2>
+    <button onclick="countToFive()">Generate</button>
+    <button onclick="clearList()">Clear</button>
+    <ul id="numberList"></ul>
+</section>
+
+<section>
+    <h2>10. All Concept Demo</h2>
+    <button onclick="showVariables()">Variables</button>
+    <button onclick="doMath()">Calculate</button>
+    <input id="grade" type="number" placeholder="score">
+    <button onclick="checkGrade()">Grade</button>
+    <button onclick="greet()">Greet</button>
+    <div class="output" id="demoOutput"></div>
+
+    <a href="index.html" class="back-btn">⬅ Back to Portfolio</a>
+</section>
+
+<script>
+let count = 0;
+let isLightOn = false;
+
+function sayHola(){
+    document.getElementById("output1").innerHTML = "Hola from the function^^"
+} 
+
+function changeText(){
+    document.getElementById("text11").innerHTML = "Changed at " + new Date().toLocaleTimeString();
+} 
+
+function incrementCounter(){
+    count++;
+    document.getElementById("countDisplay").innerHTML = count;
+}
+
+function greetUser(){
+    let name = document.getElementById("nameInput").value;
+    if(name === "") name = "Guest";
+    document.getElementById("output2").innerHTML = "Hola " + name;
+}
+
+function checkAge(){
+    let age = document.getElementById("ageInput").value;
+    let res = (age >=18) ? "Adult" : "Minor";
+    document.getElementById("output3").innerHTML = res;
+}
+
+function add(){
+    let a = Number(document.getElementById("num1").value);
+    let b = Number(document.getElementById("num2").value);
+    document.getElementById("output4").innerHTML = a + b;
+}
+
+function sub(){
+    let a = Number(document.getElementById("num1").value);
+    let b = Number(document.getElementById("num2").value);
+    document.getElementById("output4").innerHTML = a - b;
+}
+
+function mul(){
+    let a = Number(document.getElementById("num1").value);
+    let b = Number(document.getElementById("num2").value);
+    document.getElementById("output4").innerHTML = a * b;
+}
+
+function toggleLight(){
+    isLightOn = !isLightOn;
+    let light = document.getElementById("light");
+    
+    if (isLightOn) {
+        light.innerHTML = "Light is ON";
+        light.style.backgroundColor = "#00ff00";
+        light.style.color = "black";
+    } else {
+        light.innerHTML = "Light is OFF";
+        light.style.backgroundColor = "#223922";
+        light.style.color = "white";
+    }
+}
+
+function countToFive(){
+    let list = document.getElementById("numberList");
+    list.innerHTML = ""; 
+    for (let i = 1; i <= 5; i++) {
+        list.innerHTML += "<li>Number: " + i + "</li>";
+    }
+}
+
+function clearList (){
+    document.getElementById("numberList").innerHTML = "";
+}
+
+function showVariables(){
+    document.getElementById("demoOutput").innerHTML = "Counter: " + count;
+}
+
+function doMath(){
+    let a = 10;
+    let b = 5;
+    document.getElementById("demoOutput").innerHTML = a + b;
+} 
+
+function checkGrade(){
+    let score = Number(document.getElementById("grade").value);
+    let grade;
+    
+    if (score >= 90) grade = "A";
+    else if (score >= 80) grade = "B";
+    else if (score >= 70) grade = "C";
+    else if (score >= 60) grade = "D";
+    else grade = "F";
+    
+    document.getElementById("demoOutput").innerHTML = 
+        "Score: " + score + "<br>Grade: " + grade;  
+}
+
+function greet(){
+    let name = prompt ("Enter your name:");
+    if(name){
+        document.getElementById("demoOutput").innerHTML = "Hola " + name;
+    }
+}
+</script>
+
+</body>
+</html>
