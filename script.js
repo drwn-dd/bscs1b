@@ -37,4 +37,8 @@ function openImage(img) {
     window.open(img.src, "_blank");
 }
 
+function openLab(page) {
+    window.location.href = page;
+}
+
 showSection("home");
